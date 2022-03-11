@@ -143,33 +143,6 @@ sed -e "s/__NAME__/$NAME/g" \
     < $SPEC_IN \
     > $BUILD_DIR/image.spec
 
-touch $BUILD_DIR/image.changes
-
-echo "Generating changelog for $PKG_NAME $ARCH"
-
-CHANGELOG_FILENAME=/usr/share/changelog-generator-data/old.changes.$PKG_NAME.$ARCH
-PACKAGES_FILENAME=/usr/share/changelog-generator-data/old.packages.$PKG_NAME.$ARCH
-
-if [ -e $PACKAGES_FILENAME ];then
-    if [ -e $CHANGELOG_FILENAME ];then
-        if ! type changelog-generator &>/dev/null;then
-            echo "Fatal: changelog found but 'changelog-generator' not installed!"
-            exit 1
-        fi
-
-        changelog-generator --new-packages $PACKAGES \
-          --old-packages $PACKAGES_FILENAME \
-          --changelog $CHANGELOG_FILENAME > $BUILD_DIR/image.changes
-    else
-        echo "no $PACKAGES_FILENAME"
-    fi
-else
-    echo "no $CHANGELOG_FILENAME"
-fi
-
-cat $BUILD_DIR/image.changes >> $BUILD_DIR/image.spec
-mv $BUILD_DIR/image.changes $IMAGE_DIR
-
 # Copy metadata file to source directory
 if [ ! -f $TOPDIR/SOURCES/$METADATA ]; then
   cp $METADATA $TOPDIR/SOURCES
