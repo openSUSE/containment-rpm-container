@@ -1,5 +1,5 @@
 #
-# spec file for package containment-rpm-docker
+# spec file for package containment-rpm-container
 #
 # Copyright (c) 2018 SUSE LINUX GmbH, Nuernberg, Germany.
 #
@@ -16,13 +16,13 @@
 #
 
 
-Name:           containment-rpm-docker
+Name:           containment-rpm-container
 Version:        1.3.5
 Release:        0
 Summary:        Wraps OBS/kiwi-built images in rpms
 License:        MIT
 Group:          System/Management
-Url:            http://git.suse.de/?p=docker/containment-rpm-docker.git
+Url:            https://github.com/openSUSE/containment-rpm-container
 Source:         %{name}-%{version}.tar.bz2
 BuildRequires:  filesystem
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
