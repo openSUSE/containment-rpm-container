@@ -23,7 +23,7 @@ Summary:        Wraps OBS/kiwi-built images in rpms
 License:        MIT
 Group:          System/Management
 Url:            https://github.com/openSUSE/containment-rpm-container
-Source:         %{name}-%{version}.tar.bz2
+Source:         %{name}-%{version}.tar.xz
 BuildRequires:  filesystem
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
