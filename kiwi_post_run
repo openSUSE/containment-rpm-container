@@ -5,7 +5,7 @@
 KIWI_NG=$( kiwi --version|grep "next generation")
 KIWI_VER=$( kiwi --version | grep vnr | sed 's/.*vnr: //' )
 
-echo "Running containment-rpm-docker: KIWI VERSION: $KIWI_VER"
+echo "Running containment-rpm-container: KIWI VERSION: $KIWI_VER"
 
 set -e
 set -u

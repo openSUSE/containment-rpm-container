@@ -1,5 +1,5 @@
-This repository hosts the containment-rpm resources used to wrap the Docker
-images built by KIWI on IBS into RPMs.
+This repository hosts the containment-rpm resources used to wrap the container
+images built by KIWI on OBS into RPMs.
 
 The work is based on the original containment-rpm tool created by SUSE Studio
 and later made available inside of [this public repository](https://github.com/openSUSE/containment-rpm).
@@ -54,9 +54,9 @@ the Docker images.
 The project must have at least two repositories:
 
   * A KIWI repository, this is called 'images' by default by the build service.
-  * A repository to build the containment-rpm-docker binary.
+  * A repository to build the containment-rpm-container binary.
 
-If you plan to build a docker images for different version of SLE then you have
+If you plan to build a container images for different version of SLE then you have
 to make sure you build the containment rpm also for these targets. You have to
 do that because the build host will have the same OS of the target (see previous
 section).
@@ -69,14 +69,14 @@ have something like that:
 Type: kiwi
 Repotype: rpm-md
 Patterntype: none
-Required: containment-rpm-docker
+Required: containment-rpm-container
 %endif
 ```
 
 We changed `Repotype` because the repository is going to have also the rpm
 containing the output produced by KIWI.
 
-We added the `Required` statement to have the `containment-rpm-docker` and all
+We added the `Required` statement to have the `containment-rpm-container` and all
 its dependencies installed inside of the build environment used by the build
 service.
 
