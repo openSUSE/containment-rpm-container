@@ -1,7 +1,7 @@
 #
 # spec file for package containment-rpm-docker
 #
-# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
+# Copyright (c) 2018 SUSE LINUX GmbH, Nuernberg, Germany.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -15,25 +15,18 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
-# norootforbuild
 
 Name:           containment-rpm-docker
-Version:        1.3.4+git_r54_95fb234
+Version:        1.3.5
 Release:        0
-License:        MIT
 Summary:        Wraps OBS/kiwi-built images in rpms
-Url:            https://github.com/SUSE/containment-rpm-docker
+License:        MIT
 Group:          System/Management
-Source:         master.tar.gz
+Url:            http://git.suse.de/?p=docker/containment-rpm-docker.git
+Source:         %{name}-%{version}.tar.bz2
 BuildRequires:  filesystem
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
-%if 0%{?suse_version} >= 1230
-Requires:       rubygem(changelog_generator)
-%else
-Requires:       rubygem-changelog_generator
-%endif
-Requires:       changelog-generator-data
 Requires:       libxml2-tools
 
 %description
@@ -47,7 +40,7 @@ image.spec.in), and place the rpm in the correct location that it
 becomes an additional build artefact.
 
 %prep
-%setup -q -n %{name}-master
+%setup -q
 
 %build
 
